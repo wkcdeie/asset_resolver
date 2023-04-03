@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      asset_resolver:
+        enabled: true
+
+builders:
+  assets_builder:
+    target: ":asset_resolver"
+    import: 'package:asset_resolver/builder.dart'
+    builder_factories: [ 'assetsBuilder' ]
+    build_extensions: {"$lib$": ["assets.dart"]}
+    auto_apply: dependents
+    build_to: source
